@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class GajiDanTabunganCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan jam kerja Mr. John Travolta: ");
+        int jamKerja = scanner.nextInt();
+
+        System.out.print("Masukkan rate per jam Mr. John Travolta (Rp. ): ");
+        int ratePerJam = scanner.nextInt();
+
+        System.out.print("Masukkan pengeluaran Mr. John Travolta (Rp. ): ");
+        int pengeluaran = scanner.nextInt();
+
+        int jamNormal = 40; // jam kerja normal
+        int jamLembur = jamKerja - jamNormal;
+        int gajiNormal = jamNormal * ratePerJam;
+        int gajiLembur = jamLembur * ratePerJam * 3 / 2; // 1.5 kali rate per jam
+        int totalGaji = gajiNormal + gajiLembur;
+
+        System.out.println("Gaji Mr. John Travolta: Rp. " + totalGaji);
+
+        if (totalGaji > pengeluaran) {
+            int tabungan = totalGaji - pengeluaran;
+            System.out.println("Mr. John Travolta bisa menabung Rp. " + tabungan);
+        } else if (totalGaji == pengeluaran) {
+            System.out.println("Mr. John Travolta tidak bisa menabung");
+        } else {
+            System.out.println("Mr. John Travolta harus cari tambahan");
+        }
+    }
+}
